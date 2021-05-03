@@ -146,10 +146,10 @@ impl HexReader {
         let mut line_offset = line_width * self.window_pos.1 + self.window_pos.0;
         
         let mut before_itr = self.before_image.iter();
-        let mut after_itr = self.capture.iter();
+        let after_itr = self.capture.iter();
         let mut i = 0;
         let mut begin_offset: Option<u64> = None;
-        while let Some(a) = after_itr.next() {
+        for a in after_itr {
             let offset = line_offset + i;
             
             if let Some(b) = before_itr.next() {
